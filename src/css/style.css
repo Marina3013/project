@@ -1,0 +1,246 @@
+/* применяем стиль для всех элементов */
+*{
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+/* прячем блок promo под блок subheader
+    1 способ: 
+    для этого его родителю header назначаем свойство relative,
+    а самому блоку subheader - absolute и ширину 100%*/
+header{
+    position: relative;
+}
+/* HEADER */
+nav{
+    background-color: #212121;
+    height: 50px;
+    /* липкое навигационное меню  */
+    position: fixed;
+    width: 100%;
+    
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 70px;
+    margin-bottom: 0;
+    /* убираем нумерацию списка */
+    list-style-type: none;    
+}
+.menu .menu_link{
+    font-size: 15px;
+    font-weight: 300;
+    color: #fff;
+}
+.menu .menu_item{
+    /* рисуем разделения между элементами меню */
+    border-right: 2px dotted black;
+    padding-right: 28px;
+}
+
+/* SUBHEADER */
+.subheader{
+    min-height: 84px;
+    /* прозрачность фона 60% задаем через альфа-канал */
+    background-color: rgba(0,0,0,.6);
+
+    /* прячем блок promo под блок subheader
+    1 способ: 
+    для этого его родителю header назначаем свойство relative,
+    а самому блоку subheader - absolute и ширину 100%
+    !Предпочтителен! */
+    position: absolute;
+    width: 100%;
+    margin-top: 50px;
+
+    /* прячем блок promo под блок subheader
+    2 способ: 
+    задвинуть секцию promo под секцию subheader - это трансформация секции promo по оси Y  и указываем расположение с помощью Z-индекса, позиция subheader при этом указывается как relative
+    НО! недостаток - остается внизу блока белая полоса
+    
+    position: relative;
+    z-index: 2;
+    
+    */
+}
+.subheader .subheader_logo{
+    /* зададим максимальныю величину для логотипа
+    на будущее, если будум менять логотип 
+    100% от колонки*/
+    max-width: 100%;
+    /* так ка ссылка - это строчный элемент, то margin для него не работает!!! */
+    /* чтобы это исправить преобразовываем её в блочный элемент:*/
+    display:block ;
+    margin-top: 16px;
+}
+.subheader .subheader_official{
+    margin-top: 6px;
+    font-size: 13px;
+    font-weight: 100;
+    /* чевертым параметром задана прозрачность */
+    color: rgba(255, 255, 255, 0.5);
+}
+.subheader .subheader_call{
+    margin-top: 19px;
+    font-size: 12px;
+    font-weight: 300;
+    text-align: right;
+}
+.subheader .subheader_phone{
+    display:block;
+    margin-top: 8px;
+    font-size: 22px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: right;
+    /* для сохранения отступа снизу: */
+    line-height: 12px;
+    color: #fff;
+}
+.subheader .subheader_btn{
+    /* стили для кнопки */
+    margin-top: 19px;
+    width: 172px;
+    height: 46px;
+    box-shadow: inset 0px -3px 0 0 rgba(0, 0, 0, 0.12);
+    border: none;
+    /* закруглим концы кнопки: */
+    border-radius: 4px;
+    background-image: linear-gradient(to top, #1eacc7, #4ce2ff);
+
+    /* стили для теста внутри кнопки */
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.21);
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* PROMO */
+.promo{
+    min-height: 800px;
+    background: url('../img/bg/bg_promo.jpg') center center/cover no-repeat;
+    padding: 150px 0 135px 0;
+    /* 2 способ: задвинуть секцию promo под секцию subheader - это трансформация секции promo по оси Y  и указываем расположение с помощью Z-индекса, позиция subheader при этом указывается как relative
+    НО! недостаток - остается внизу блока белая полоса
+    
+    transform: translateY(-84px);
+    z-index: 1;
+
+    */
+}
+.promo .promo_header{
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 60px;
+    text-transform: uppercase;
+    margin: 0px;
+    margin-top: 67px;
+    text-align: center;
+}
+.promo .promo_subheader{
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 36px;
+    text-transform: uppercase;
+    margin: 0px;
+    margin-top: 22px;
+    text-align: center;
+}
+.promo .promo_descr{
+    margin-top: 23px;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.33;
+}
+.promo .promo_btn{
+    display: block;
+    margin: 118px auto 0 auto;
+    /* стили для кнопки */
+    width: 259px;
+    height: 63px;
+    box-shadow: inset 0px -4px 0 0 rgba(0, 0, 0, 0.12);
+    border: none;
+    /* закруглим концы кнопки: */
+    border-radius: 4px;
+    background-image: linear-gradient(to top, #1eacc7, #4ce2ff);
+
+    /* стили для теста внутри кнопки */
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.21);
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* REASON */
+.reason{
+    min-height: 900px;
+    padding: 71px 0 65px 0;
+    /* background-color:black; */
+}
+
+.reason .label {
+    /* прямоугольник */
+    margin: 0 auto;
+    background-color: rgb(0, 0, 0);
+    width: 112px;
+    height: 24px;
+    /* текст в прямоугольнике */
+    font-size: 11px;
+    font-weight: 100;
+    line-height:23px ;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .reason .title{
+    margin: 38px auto 0 auto;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.26;
+    text-align: center;
+    text-transform: uppercase;
+    color: #222;
+  }
+
+  .reason_block{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin-top: 40px;  
+  }
+  /* рисуем круг кодом css */
+  .reason .reason_round{
+    /* для выравнивания картинки внутри круга */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+ /* параментры элемннта взяли из макета в фотошоп */
+    min-width: 113px; 
+    min-height: 113px;
+    border-radius: 50%;
+    background-color: rgb(30, 172, 199);  
+  }
+  .reason .reason_descr{
+    width: 343px;
+    font-size: 15px;
+    font-weight: 100;
+    line-height: 1.4;
+    text-align: justify;
+    color: #202020;
+    padding-left: 28px;
+  }
+  .reason .reason_descr span{
+    font-size: 17px;
+    font-weight: 300;
+    text-align: justify;
+    color: #1eacc7;
+  }
+  
+  
